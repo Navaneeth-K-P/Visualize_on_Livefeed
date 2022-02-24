@@ -8,7 +8,7 @@ from test import *
 import cv2
 from cv_bridge import CvBridge, CvBridgeError
 import traceback
-import time
+
 
 # Initialize the ROS Node named 'opencv_example', allow multiple nodes to be run with this name
 rospy.init_node('opencv_example', anonymous=True)
@@ -22,17 +22,11 @@ def image_callback(img_msg):
 
     # Try to convert the ROS Image message to a CV2 Image
     try:
-      cv_image = bridge.imgmsg_to_cv2(img_msg, "bgr8")# [:,:,:3]
-      cv_image = cv_image[cv_image.shape[0]//2:,:,:]
+      cv_image = bridge.imgmsg_to_cv2(img_msg, "passthrough")[:,:,:3]
       # img_path2=r'/home/iitdautomation/DLive/PINet/dataset/Test_images/11A00148.JPG'
       # cv_image = cv2.imread(img_path2)
-      now = time.time()
+      print("hit")
       run_lane_detect(cv_image)
-      dt = time.time() - now
-      print(1/dt)
-    # except:
-    #   pass
-
     except Exception:
       print(traceback.format_exc())
 

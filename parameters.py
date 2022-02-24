@@ -11,7 +11,7 @@ class Parameters():
     l_rate = 0.0001
     weight_decay=0
     save_path = "savefile/"
-    model_path = "/home/iitdautomation/catkin_ws/src/lane_detect/src/savefile/"
+    model_path = "/home/suniljha/catkin_ws/src/visualize_livefeed/src/savefile/"
     batch_size = 8
     x_size = 512
     y_size = 256
@@ -21,7 +21,7 @@ class Parameters():
     feature_size = 4
     regression_size = 110
     mode = 2
-    threshold_point = 0.81
+    threshold_point = 0.97
     threshold_instance = 0.22
 
     #loss function parameter
